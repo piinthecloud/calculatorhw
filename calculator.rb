@@ -1,7 +1,7 @@
 #def check_input (a)
 
 
-
+#converts input into symbols so that the final answer looks like a+b=c...but it's not working
 def convert(a)
   if a == ("addition" || "+")
     a = "+"
@@ -18,6 +18,7 @@ def convert(a)
   end
 end
 
+#tells ruby exactly which math to perform on the input
 def calc(f, a, b)
   if f == "+"
     add(a, b)
@@ -36,6 +37,7 @@ def calc(f, a, b)
   end
 end
 
+#def the different types of math for ruby
 def add(a, b)
   a + b
 end
@@ -63,6 +65,7 @@ end
 
 puts "What kind of math do you want to do on this sunny day?"
 input = gets.chomp
+#changes the input to always be a symbol(not a ruby symbol)
   if input == ("addition" || "+")
     input = "+"
   elsif input == ("subtraction" || "-")
@@ -77,15 +80,17 @@ input = gets.chomp
       input = "√"
   end
 
+#loop that asks user for correct kind of input
 while input != ("addition" || "+" ||"subtraction" || "-" || "multiplication"|| "*" || "division" || "/" || "exponent" || "^" || "square root" || "√")
   puts "Give me something I can handle! Try again"
   input = gets.chomp
 end
-input = convert(input)
+#input = convert(input)
 
 
 puts "What's the first number?"
 num1 = nil
+#loop to ask user for the right kind of numerical input
 while num1.class != Fixnum
   num1 = gets.chomp
   if num1 == ""
@@ -97,7 +102,7 @@ while num1.class != Fixnum
   end
 end
 
-
+#asks user for second number whenever there is anything but a square root.
   if input != "√"
     puts "What's the second number?"
     num2 = nil
