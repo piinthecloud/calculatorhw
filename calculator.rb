@@ -3,17 +3,17 @@
 
 #converts input into symbols so that the final answer looks like a+b=c...but it's not working
 def convert(a)
-  if a == ("addition" || "+")
+  if a == ("addition")
     a = "+"
-  elsif a == ("subtraction" || "-")
+  elsif a == ("subtraction")
     a = "-"
-  elsif a == ("multiplication"|| "*")
+  elsif a == ("multiplication")
     a = "*"
-  elsif a == ("division" || "/")
+  elsif a == ("division")
     a = "/"
-  elsif a == ("exponent" || "^")
+  elsif a == ("exponent")
     a = "^"
-  elsif a == ("square root" || "√")
+  elsif a == ("square root")
     a = "√"
   end
 end
@@ -65,20 +65,21 @@ end
 
 puts "What kind of math do you want to do on this sunny day?"
 input = gets.chomp
-#changes the input to always be a symbol(not a ruby symbol)
-  if input == ("addition" || "+")
-    input = "+"
-  elsif input == ("subtraction" || "-")
-    input = "-"
-  elsif input == ("multiplication"|| "*")
-    input = "*"
-  elsif input == ("division" || "/")
-      input = "/"
-  elsif input == ("exponent" || "^")
-      input = "^"
-  elsif input == ("square root" || "√")
-      input = "√"
-  end
+convert(input)
+# #changes the input to always be a symbol(not a ruby symbol)
+#   if input == ("addition" || "+")
+#     input = "+"
+#   elsif input == ("subtraction" || "-")
+#     input = "-"
+#   elsif input == ("multiplication"|| "*")
+#     input = "*"
+#   elsif input == ("division" || "/")
+#       input = "/"
+#   elsif input == ("exponent" || "^")
+#       input = "^"
+#   elsif input == ("square root" || "√")
+#       input = "√"
+#   end
 
 #loop that asks user for correct kind of input
 while input != ("addition" || "+" ||"subtraction" || "-" || "multiplication"|| "*" || "division" || "/" || "exponent" || "^" || "square root" || "√")
@@ -103,21 +104,38 @@ while num1.class != Fixnum
 end
 
 #asks user for second number whenever there is anything but a square root.
-  if input != "√"
-    puts "What's the second number?"
-    num2 = nil
-    while num2.class != Fixnum
-      num2 = gets.chomp
-      if num2 == ""
-        num2 = 0
-      elsif num2 != "0" && num2.to_i == 0
-        puts "Try using a number instead."
-      else
-        num2 = num2.to_i
-      end
+if input != "√"
+  puts "What's the second number?"
+  num2 = nil
+  while num2.class != Fixnum
+    num2 = gets.chomp
+    if num2 == ""
+      num2 = 0
+    elsif num2 != "0" && num2.to_i == 0
+      puts "Try using a number instead."
+    else
+      num2 = num2.to_i
     end
-    # num2 = gets.chomp.to_f
   end
+  # num2 = gets.chomp.to_f
+end
+
+#
+# case input
+# when input == "addition", "+" then add
+#   # adds numbers
+# when input ==  "subtraction", "-" then
+#   # subtract the numbers
+# when input == "multiply", "*" then
+#   # multiply the numbers
+# when input == "divide", "/" then
+#   # divide the numbers
+# when input == "exponify", "**" then
+#   # exponify the number
+# when input == "square root", "√" then
+#   # find the square root of the number
+# end
+
 
 answer = calc(input, num1, num2)
 
